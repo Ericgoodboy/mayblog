@@ -1,34 +1,3 @@
-<template>
-  <div id="app">
-    <v-header></v-header>
-    <v-crumbs></v-crumbs>
-    <v-body></v-body>
-  </div>
-</template>
-
-<script>
-import header from './components/header/header'
-import crumbs from './components/crumbs/crumbs'
-import body from './components/body/body'
-export default {
-  name: 'app',
-  components: {
-    "v-header":header,
-    "v-crumbs":crumbs,
-    "v-body":body
-  }
-}
-</script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 html,
 body,
 div,
@@ -159,4 +128,3 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-</style>
