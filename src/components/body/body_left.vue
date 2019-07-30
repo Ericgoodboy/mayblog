@@ -21,5 +21,6 @@
 .left{
     width: 70%;
     padding-left:70px;
+    float: left;
 }
 </style>
