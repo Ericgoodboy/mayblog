@@ -2,20 +2,26 @@
   <div id="app">
     <v-header></v-header>
     <v-crumbs></v-crumbs>
-    <v-body></v-body>
+    <!-- <editor></editor> -->
+    <!-- <v-body></v-body> -->
+    <v-test></v-test>
   </div>
 </template>
 
 <script>
 import header from './components/header/header'
 import crumbs from './components/crumbs/crumbs'
-import body from './components/body/body'
+// import body from './components/body/body'
+// import editor from './components/editor/editor'
+import test from './components/test/testapi'
 export default {
   name: 'app',
   components: {
     "v-header":header,
     "v-crumbs":crumbs,
-    "v-body":body
+    // "v-body":body,
+    // editor,
+    "v-test":test
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="body_right">
+    <div ref="block" class="body_right">
         <div class="title">
             <img src="../../assets/img/timeline-bg.1175b5c0.jpg" alt="" srcset="">
             <h2>Mayeye大事件</h2>
@@ -32,7 +32,22 @@
 
 <script>
     export default {
-        name:"body_right"
+        name:"body_right",
+        methods:{
+             handleScroll(){
+        var e = document.body.scrollTop||document.documentElement.scrollTop
+        if(this.$refs["block"]!=undefined){
+            if(e<300){
+                this.$refs["block"].style.top=-e+120+"px";
+            }   
+        }
+        
+                        }
+        },
+        mounted () {
+    
+    window.addEventListener('scroll',this.handleScroll)
+},
     }
 </script>
 
@@ -45,6 +60,9 @@
     float: left;
     margin-left: 30px;
     margin-top: 20px;
+    position: fixed;
+    right:30px;
+    top:120px;
 }
 .body_right .title{
     /* background: url("../../assets/img/timeline-bg.1175b5c0.jpg") no-repeat; */

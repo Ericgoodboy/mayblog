@@ -44,7 +44,46 @@
         background: #f33;
         display: block;
         line-height: 35px;
-        text-align: center
+        text-align: center;
+        position: relative;
+        
+    }
+    .icon:before{
+        content: "";
+        position: absolute;
+        left: 0;
+        top:0;
+        height: 100%;
+        width: 100%;
+        background: rgba(255, 255, 255, .3);
+        overflow: hidden;
+        
+    }
+    .icon:hover:before{
+        animation: iconMove 1.3s infinite;
+    }
+    @keyframes iconMove {
+        0%{
+            left: 0;
+            
+        }
+        25%{
+            left: 50%;
+            transform: scaleX(0);
+            
+        }
+        50%{
+            left: 0;
+            transform: scaleX(1)
+        }
+        75%{
+            left: -50%;
+            transform: scaleX(0)
+        }
+        100%{
+            left: 0;
+            transform: scaleX(1);
+        }
     }
     .wraper{
         width: 100%;
