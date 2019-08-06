@@ -1,7 +1,7 @@
 <template>
     <div class="left">
-        <v-top></v-top>
-        <v-main-list></v-main-list>
+        <v-top :top="top"></v-top>
+        <v-main-list :items ="items"></v-main-list>
     </div>
 </template>
 
@@ -10,10 +10,12 @@
     import mainList from './mainList'
     export default {
         name:"body_left",
+        props:["items","top"],
         components:{
             "v-top":top,
             "v-main-list":mainList
-        }
+        },
+        
     }
 </script>
 

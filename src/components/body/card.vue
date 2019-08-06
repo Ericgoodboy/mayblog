@@ -2,11 +2,11 @@
     <div class="card">
         <div class="infoline">
             <div class="time">
-                2019 07-19
+                {{ time }}
             </div>
             <div class="detail clearfix">
                 <div class="title">
-                    VueJs打包后没有正确覆盖第三方组件库样式的解决办法
+                   {{ title }}
                 </div>
                 <div class="infos">
                     <ul>
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="content">
-                vue cli3安装可以选择less，cli会自动配置，但是如果是用cli2，想要引入less的话，就需要做一些额外配置了。
+                {{ content }}
             </div>
             <div class="footer">
                 <div class="category"><i class="fa fa-book" aria-hidden="true"></i> 前端</div>
@@ -29,7 +29,8 @@
 
 <script>
     export default {
-        name:"card"
+        name:"card",
+        props:["time","content","title"]
     }
 </script>
 

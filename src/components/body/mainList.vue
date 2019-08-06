@@ -1,26 +1,8 @@
 <template>
     <div class="main-body clearfix">
         <ul>
-            <li>
-                <v-card></v-card>
-            </li>
-            <li>
-                <v-card></v-card>
-            </li>
-            <li>
-                <v-card></v-card>
-            </li>
-            <li>
-                <v-card></v-card>
-            </li>
-            <li>
-                <v-card></v-card>
-            </li>
-            <li>
-                <v-card></v-card>
-            </li>
-            <li>
-                <v-card></v-card>
+            <li v-for="item in items" :key="item.id">
+                <v-card :time="item.publishDate" :title="item.title" :content="item.desc" ></v-card>
             </li>
         </ul>
     </div>
@@ -30,6 +12,7 @@
     import card from './card'
     export default {
         name:"mainbody",
+        props:["items"],
         components:{
             "v-card":card
         }

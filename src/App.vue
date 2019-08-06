@@ -4,7 +4,8 @@
     <v-crumbs></v-crumbs>
     <!-- <editor></editor> -->
     <!-- <v-body></v-body> -->
-    <v-test></v-test>
+    <!-- <v-test></v-test> -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -13,7 +14,7 @@ import header from './components/header/header'
 import crumbs from './components/crumbs/crumbs'
 // import body from './components/body/body'
 // import editor from './components/editor/editor'
-import test from './components/test/testapi'
+// import test from './components/test/testapi'
 export default {
   name: 'app',
   components: {
@@ -21,7 +22,7 @@ export default {
     "v-crumbs":crumbs,
     // "v-body":body,
     // editor,
-    "v-test":test
+    // "v-test":test,
   }
 }
 </script>

@@ -1,18 +1,14 @@
 <template>
     <div class="top">
         <ul>
-            <li>
+            <li v-for="item in top" :key="item.id">
                 <div class="wraper">
                     <div class="icon">
                         置顶
                     </div>
-                </div>
-            </li>
-            <li>
-                <div class="wraper">
-                    <div class="icon">
-                        置顶
-                    </div>
+                    <router-link  to="">
+                        {{ item.title }}
+                    </router-link>
                 </div>
             </li>
         </ul>
@@ -21,7 +17,8 @@
 
 <script>
     export default {
-        name: "top"
+        name: "top",
+        props:["top"]
     }
 </script>
 
@@ -46,7 +43,14 @@
         line-height: 35px;
         text-align: center;
         position: relative;
-        
+        float: left;
+    }
+    .wraper a{
+        height: 35px;
+        line-height: 30px;
+        text-decoration: none;
+        color: #333;
+        margin-left: 50px;
     }
     .icon:before{
         content: "";

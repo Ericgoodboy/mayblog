@@ -2,14 +2,9 @@
     <div class="header">
         <div class="wrape">
             <ul>
-                <li>首页</li>
-                <li>前端</li>
-                <li>后端</li>
-                <li>专题</li>
-                <li>icon</li>
-                <li>系统</li>
-                <li>影视后期</li>
-                <li>V生活</li>
+                <li v-for="item in linkList" :key="item.id">
+                    <router-link :to="item.url">{{ item.title }}</router-link>
+                </li>
             </ul>
         </div>
     </div>
@@ -24,7 +19,15 @@ export default {
   },
   data(){
       return {
-          
+          linkList:[
+              {id:1,title:"首页",url:"/"},
+              {id:2,title:"前端",url:"/subbody/前端"},
+              {id:3,title:"后端",url:""},
+              {id:4,title:"test",url:"/test"},
+              {id:5,title:"首页",url:""},
+              {id:6,title:"首页",url:""},
+              {id:7,title:"编辑",url:"/editor"},
+          ]
       }
   }
 }
@@ -52,7 +55,14 @@ export default {
     float: left;
     width: 12.5%;
     position: relative;
+    text-decoration: none;
 }
+.header li a{
+    color: #333333;
+    font-size: 16px; 
+    text-decoration: none;
+}
+
 .header li:before{
     content: "";
     position: absolute;
