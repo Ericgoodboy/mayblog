@@ -13,14 +13,17 @@ Vue.use(VueRouter)
 const routes = [
   {path:"/",component:body},
   {path:"/test",component:test},
-  {path:"/editor",component:editor},
+  {path:"/editor/:id",component:editor},
   {path:"/subbody/:title",component:subbody}
 ]
+import toastRegistry from './toast/index'
+Vue.use(toastRegistry)
 const router =new VueRouter({routes})
 new Vue({
   render: h => h(App),
   router,
 }).$mount('#app')
+
 // new Vue({
 //   router,
 //   components:{

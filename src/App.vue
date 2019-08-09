@@ -1,35 +1,57 @@
 <template>
   <div id="app">
     <v-header></v-header>
-    <v-crumbs></v-crumbs>
+    <!-- <v-crumbs></v-crumbs> -->
     <!-- <editor></editor> -->
     <!-- <v-body></v-body> -->
     <!-- <v-test></v-test> -->
-    <router-view></router-view>
+    <transition name="bounce">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
-import header from './components/header/header'
-import crumbs from './components/crumbs/crumbs'
+import header from "./components/header/header";
+// import crumbs from "./components/crumbs/crumbs";
 // import body from './components/body/body'
 // import editor from './components/editor/editor'
 // import test from './components/test/testapi'
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    "v-header":header,
-    "v-crumbs":crumbs,
+    "v-header": header,
+    // "v-crumbs": crumbs
     // "v-body":body,
     // editor,
     // "v-test":test,
   }
-}
+};
 </script>
 
 <style>
+.bounce-enter-active {
+  animation: bounce-in 1s;
+}
+.bounce-leave-active {
+  animation: bounce-in 1s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0); 
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: .2
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1
+  }
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -123,7 +145,9 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif}
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
 
 /* HTML5 display-role reset for older browsers */
 article,
@@ -158,7 +182,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 

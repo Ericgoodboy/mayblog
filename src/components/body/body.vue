@@ -25,22 +25,34 @@
         mounted(){
            axios({
                'method':"get",
-               url:'/api/initindex'
+               url:'/get/items'
            }).then(res=>{
                 window.console.log(res.data)
-                let items = res.data.items;
-                let top = res.data.toping;
-                let hotarticals = res.data.hotarticals;
+                let items = res.data;
                 for(let i=0;i<items.length;i++){
                     this.items.push(items[i])
                 }
-                for (let i=0;i<top.length;i++){
-                    this.top.push(top[i])
-                }
-                for (let i=0;i<hotarticals.length;i++){
+           }) 
+           axios({
+               'method':"get",
+               url:'/get/hotarticals'
+           }).then(res=>{
+                window.console.log(res.data)
+                let hotarticals = res.data;
+                for(let i=0;i<hotarticals.length;i++){
                     this.hotarticals.push(hotarticals[i])
                 }
            }) 
+           axios({
+               'method':"get",
+               url:'/get/toping'
+           }).then(res=>{
+                window.console.log(res.data)
+                let toping = res.data;
+                for(let i=0;i<toping.length;i++){
+                    this.top.push(toping[i])
+                }
+           })
         }
     }
 </script>

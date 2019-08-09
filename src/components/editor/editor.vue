@@ -8,17 +8,16 @@
     <div class="form">
       <div class="select">
         <select :v-model="d_type" name="类别">
-          <option value="1">前端</option>
-          <option value="2">后端</option>
-          <option value="3">专题</option>
-          <option value="4">系统</option>
-          <option value="5">随笔</option>
+          <option v-for="(k,v) in mapDtype" :value="k" :key="k.id">
+            {{ v }}
+          </option>
+          <!-- <option value="5">随笔</option> -->
         </select>
       </div>
 
       <textarea id="hidden" name="content" v-model="editorContent" cols="30" rows="10"></textarea>
       <button @click="save()">保存</button>
-      <button>提交</button>
+      <button @click="submit()">提交</button>
     </div>
   </div>
 </template>
@@ -33,35 +32,61 @@ export default {
       editorContent: "",
       txt: "",
       title: "母猪的产后护理",
-      d_type: 1
+      d_type: 1,
+      id: "",
+      mapDtype:{
+        1:"前端",
+        2:"后端",
+        3:2,
+        4:3
+      }
     };
   },
   methods: {
     getContent: function() {
       window.console.log(this.editorContent);
     },
+    getCode() {
+      axios({
+        method: "post",
+        url: "/editor/save",
+        data: {
+          title: this.title,
+          d_type: this.d_type,
+          editorContent: this.editorContent,
+          user: "mayeye"
+        }
+      }).then(function(res) {
+        window.console.log(res);
+        alert("saved");
+      });
+    },
     save() {
       axios({
         method: "post",
-        url: "/api/save",
+        url: "/editor/save",
         data: {
-          title:this.title,
-          d_type:this.d_type,
-          editorContent:this.editorContent,
-          user:"mayeye"
+          title: this.title,
+          d_type: this.d_type,
+          editorContent: this.editorContent,
+          user: "mayeye"
         }
-      }).then(function(res){
-          window.console.log(res)
-          alert("saved")
-      })
-    }
-    ,
-    handleKeydown(){
+      }).then(function(res) {
+        window.console.log(res);
+        alert("saved");
+      });
+    },
+    submit() {
+      this.save();
+      this.$router.push("/");
+    },
+    handleKeydown() {
       let key = window.event.keyCode;
-      if (key== 83 && event.ctrlKey) {//== 83 && event.ctrlKey
-            window.event.preventDefault() //关闭浏览器快捷键
-            this.save();
-        }
+      if (key == 83 && event.ctrlKey) {
+        //== 83 && event.ctrlKey
+        window.event.preventDefault(); //关闭浏览器快捷键
+        this.save();
+      }
     }
   },
   mounted() {
@@ -71,7 +96,6 @@ export default {
     };
     editor.customConfig.uploadImgShowBase64 = true; // 使用 base64 保存图片
     editor.create();
-    
   }
 };
 </script>
