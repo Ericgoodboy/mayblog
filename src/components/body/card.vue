@@ -16,8 +16,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="content">
-                {{ content }}
+            <div v-html="content" class="content">
             </div>
             <div class="footer">
                 <div class="category"><i class="fa fa-book" aria-hidden="true"></i> 前端</div>
@@ -30,7 +29,9 @@
 <script>
     export default {
         name:"card",
-        props:["time","content","title"]
+        props:["time","content","title"],
+        components:{
+        }
     }
 </script>
 
@@ -62,7 +63,7 @@
     }
     .detail{
         float: left;
-        width: 220px;
+        width: 320px;
         height: 60px;
         /* background: #50bfff; */
         margin-left:13px;
@@ -74,7 +75,6 @@
         column-count: 1;
         overflow: hidden;
         line-height: 100%;
-        
     }
     .infos li{
         float: left;
@@ -94,6 +94,12 @@
         font-size: 15px;
         text-indent: 30px;
         line-height: 25px;
+        overflow: hidden;
+        display: block;
+        width: 100%
+    }
+    .content p{
+        text-align: center
     }
     .footer{
         width: 100%;

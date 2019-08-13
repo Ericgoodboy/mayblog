@@ -12,6 +12,7 @@
 </template>
 
 <script>
+// import axios from "axios"
 import header from "./components/header/header";
 // import crumbs from "./components/crumbs/crumbs";
 // import body from './components/body/body'
@@ -25,6 +26,8 @@ export default {
     // "v-body":body,
     // editor,
     // "v-test":test,
+  },
+  mounted(){
   }
 };
 </script>

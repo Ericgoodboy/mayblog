@@ -24,13 +24,11 @@
                 items:[]
             }
         },
-        
         watch:
         {
             $route(to, from){
                 window.console.log(to,from)
                  this.className = map[this.$route.params.title]
-           
            axios({
                'method':"get",
                url:'/get/sub-'+this.$route.params.title

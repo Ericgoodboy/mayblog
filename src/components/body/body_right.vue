@@ -32,8 +32,9 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-  }
+    window.console.log("---------------------")
+    window.console.log(this.hotarticals)
+}
 };
 </script>
 

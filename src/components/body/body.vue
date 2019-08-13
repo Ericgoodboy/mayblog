@@ -10,7 +10,7 @@
     import body_left from "./body_left"
     import body_right from "./body_right"
     export default {
-        name:"body",
+        name:"v-body",
         data(){
             return {
                 items:[],

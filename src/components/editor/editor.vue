@@ -47,21 +47,23 @@ export default {
       window.console.log(this.editorContent);
     },
     getCode() {
+      let that = this
       axios({
         method: "post",
-        url: "/editor/save",
+        url: "/editor/getCode",
         data: {
           title: this.title,
           d_type: this.d_type,
           editorContent: this.editorContent,
-          user: "mayeye"
+          user: "mayeye",
         }
       }).then(function(res) {
-        window.console.log(res);
-        alert("saved");
+        that.id = res.data.code
+        window.console.log(that.id)
       });
     },
     save() {
+      let that = this
       axios({
         method: "post",
         url: "/editor/save",
@@ -69,13 +71,24 @@ export default {
           title: this.title,
           d_type: this.d_type,
           editorContent: this.editorContent,
-          user: "mayeye"
+          user: "mayeye",
+          id:this.id
         }
-      }).then(function(res) {
-        window.console.log(res);
-        alert("saved");
+      }).then(function() {
+         that.$toast({
+        text: '保存成功',
+        type: 'success',
+        // duration: 3000
+      })
+      }).catch(function(){
+          that.$toast({
+        text: '保存失败',
+        type: 'danger',
+        // duration: 3000
+      })
       });
-    },
+    }
+    ,
     submit() {
       this.save();
       this.$router.push("/");
@@ -96,6 +109,8 @@ export default {
     };
     editor.customConfig.uploadImgShowBase64 = true; // 使用 base64 保存图片
     editor.create();
+    this.getCode();
+    window.Vpoc = 1
   }
 };
 </script>

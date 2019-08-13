@@ -1,9 +1,9 @@
 <template>
-    <div @click="s()" class="header">
+    <div  class="header">
         <div class="wrape">
             <ul>
-                <li v-for="item in linkList" :key="item.id">
-                    <router-link :to="item.url">{{ item.title }}</router-link>
+                <li v-for="item in linkList"  :key="item.id">
+                    <router-link v-if="item.show" :to="item.url">{{ item.title }}</router-link>
                 </li>
             </ul>
         </div>
@@ -12,6 +12,7 @@
 
 <script lang="ts">
 // import toastr from 'toastr'
+import axios from "axios"
 export default {
   name: 'v-header',
   props: {
@@ -20,27 +21,33 @@ export default {
   data(){
       return {
           linkList:[
-              {id:1,title:"首页",url:"/"},
-              {id:2,title:"前端",url:"/subbody/fontend"},
-              {id:3,title:"后端",url:"/subbody/backend"},
-              {id:4,title:"test",url:"/test"},
-              {id:5,title:"想法",url:"/subbody/thinking"},
-              {id:6,title:"机器学习",url:"/subbody/ml"},
-              {id:7,title:"+编辑",url:"/editor/0"},
+              {id:1,title:"首页",url:"/",show:true},
+              {id:2,title:"前端",url:"/subbody/fontend",show:true},
+              {id:3,title:"后端",url:"/subbody/backend",show:true},
+              {id:4,title:"test",url:"/test",show:true},
+              {id:5,title:"想法",url:"/subbody/thinking",show:true},
+              {id:6,title:"机器学习",url:"/subbody/ml",show:true},
+              {id:7,title:"+编辑",url:"/editor/0",show:false},
           ]
       }
   },
   methods:{
-      s(){
-          this.$toast({
-        text: '我是消息',
-        type: 'wraning',
-        // duration: 3000
-      })
-      }
   },
   mounted(){
-      
+       window.console.log("===========================",this.userData)
+      window.login=function(info){
+      axios({
+        method: "post",
+        url: "/login",
+        data: info
+      }).then(function(res) {
+         if(res.data.success){
+           window.console.log("登录成功")
+         }else{
+           window.console.log("登录失败")
+         }
+      })
+    }
   }
 }
 </script>

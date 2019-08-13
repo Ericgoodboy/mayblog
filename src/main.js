@@ -7,9 +7,12 @@ import body from './components/body/body'
 import test from './components/test/testapi'
 import editor from './components/editor/editor'
 import subbody from './components/subbody/subbody'
+import userData from './user/user'
 Vue.config.productionTip = false
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
+
+Vue.prototype.userData = userData
 const routes = [
   {path:"/",component:body},
   {path:"/test",component:test},
