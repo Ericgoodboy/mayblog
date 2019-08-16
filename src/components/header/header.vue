@@ -27,7 +27,7 @@ export default {
               {id:4,title:"test",url:"/test",show:true},
               {id:5,title:"想法",url:"/subbody/thinking",show:true},
               {id:6,title:"机器学习",url:"/subbody/ml",show:true},
-              {id:7,title:"+编辑",url:"/editor/0",show:false},
+              {id:7,title:"+编辑",url:"/editor/0",show:true},
           ]
       }
   },

@@ -2,7 +2,7 @@
     <div class="main-body clearfix">
         <ul>
             <li v-for="item in items" :key="item.id">
-                <v-card :time="item.publishDate" :title="item.title" :content="item.desc" ></v-card>
+                <v-card :type="item.type" :aid="item.id" :time="item.publishDate" :title="item.title" :content="item.desc" ></v-card>
             </li>
         </ul>
     </div>

@@ -61,20 +61,14 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-html,
+/* html,
 body,
 div,
 span,
 applet,
 object,
 iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
+
 blockquote,
 pre,
 a,
@@ -150,9 +144,10 @@ video {
   vertical-align: baseline;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
+}*/
 
 /* HTML5 display-role reset for older browsers */
+/*
 article,
 aside,
 details,
@@ -192,5 +187,5 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
+} */
 </style>

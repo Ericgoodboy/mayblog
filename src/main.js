@@ -8,6 +8,7 @@ import test from './components/test/testapi'
 import editor from './components/editor/editor'
 import subbody from './components/subbody/subbody'
 import userData from './user/user'
+import showAritcals from './components/showartical/showarticals'
 Vue.config.productionTip = false
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
@@ -17,7 +18,8 @@ const routes = [
   {path:"/",component:body},
   {path:"/test",component:test},
   {path:"/editor/:id",component:editor},
-  {path:"/subbody/:title",component:subbody}
+  {path:"/subbody/:title",component:subbody},
+  {path:'/showartical/:id',component:showAritcals}
 ]
 import toastRegistry from './toast/index'
 Vue.use(toastRegistry)

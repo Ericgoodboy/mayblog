@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wraper">
     <div class="title">
       <input placeholder="输入标题" v-model="title" type="text" />
     </div>
@@ -7,9 +7,9 @@
     <div @keydown="handleKeydown()" ref="editor" style="text-align:left"></div>
     <div class="form">
       <div class="select">
-        <select :v-model="d_type" name="类别">
-          <option v-for="(k,v) in mapDtype" :value="k" :key="k.id">
-            {{ v }}
+        <select  v-model="d_type" name="类别">
+          <option v-for="(k,v) in mapDtype" :value="v" :key="k.id">
+            {{ k }}
           </option>
           <!-- <option value="5">随笔</option> -->
         </select>
@@ -37,8 +37,8 @@ export default {
       mapDtype:{
         1:"前端",
         2:"后端",
-        3:2,
-        4:3
+        3:'想法',
+        4:'机器学习'
       }
     };
   },
@@ -46,7 +46,7 @@ export default {
     getContent: function() {
       window.console.log(this.editorContent);
     },
-    getCode() {
+      getCode() {
       let that = this
       axios({
         method: "post",
@@ -108,6 +108,25 @@ export default {
       this.editorContent = html;
     };
     editor.customConfig.uploadImgShowBase64 = true; // 使用 base64 保存图片
+    editor.customConfig.fontNames = [
+        '宋体',
+        '微软雅黑',
+        'Arial',
+        'Tahoma',
+        'Verdana'
+    ]
+    editor.customConfig.colors = [
+        '#000000',
+        '#eeece0',
+        '#1c487f',
+        '#4d80bf',
+        '#c24f4a',
+        '#8baa4a',
+        '#7b5ba1',
+        '#46acc8',
+        '#f9963b',
+        '#ffffff'
+    ]
     editor.create();
     this.getCode();
     window.Vpoc = 1
@@ -116,6 +135,10 @@ export default {
 </script>
 
 <style scoped>
+.wraper{
+  width:80%;
+  margin:20px auto;
+}
 #hidden {
   display: none;
 }
