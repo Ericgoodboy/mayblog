@@ -34,7 +34,7 @@ export default {
     return {
       editorContent: "",
       txt: "",
-      title: "母猪的产后护理",
+      title: "Got a title",
       d_type: 1,
       id: "",
       value: "",
@@ -64,6 +64,7 @@ export default {
     },
     init() {
       let aid = this.$route.params.id;
+      this.id = aid
       if (aid == 0) {
         this.getCode();
       } else {
@@ -76,6 +77,7 @@ export default {
           }
         }).then(function(res) {
           that.value = res.data.value
+          that.title = res.data.title
         });
       }
       // window.console.log("editorssss",aid)
