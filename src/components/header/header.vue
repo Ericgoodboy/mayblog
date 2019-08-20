@@ -82,6 +82,7 @@ export default {
     color: #333333;
     font-size: 16px; 
     text-decoration: none;
+    text-align: center
 }
 
 .header li:before{

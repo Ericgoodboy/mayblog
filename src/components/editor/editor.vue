@@ -3,14 +3,17 @@
     <div class="title">
       <input placeholder="输入标题" v-model="title" type="text" />
     </div>
-
-    <div @keydown="handleKeydown()" ref="editor" style="text-align:left"></div>
+    <mavon-editor
+      :value="value"
+      @keydown="handleKeydown()"
+      @save="save"
+      ref="editor"
+      v-model="value"
+    />
     <div class="form">
       <div class="select">
-        <select  v-model="d_type" name="类别">
-          <option v-for="(k,v) in mapDtype" :value="v" :key="k.id">
-            {{ k }}
-          </option>
+        <select v-model="d_type" name="类别">
+          <option v-for="(k,v) in mapDtype" :value="v" :key="k.id">{{ k }}</option>
           <!-- <option value="5">随笔</option> -->
         </select>
       </div>
@@ -23,7 +26,7 @@
 </template>
 
 <script>
-import E from "wangeditor";
+// import E from "wangeditor";
 import axios from "axios";
 export default {
   name: "editor",
@@ -34,11 +37,12 @@ export default {
       title: "母猪的产后护理",
       d_type: 1,
       id: "",
-      mapDtype:{
-        1:"前端",
-        2:"后端",
-        3:'想法',
-        4:'机器学习'
+      value: "",
+      mapDtype: {
+        1: "前端",
+        2: "后端",
+        3: "想法",
+        4: "机器学习"
       }
     };
   },
@@ -46,49 +50,66 @@ export default {
     getContent: function() {
       window.console.log(this.editorContent);
     },
-      getCode() {
-      let that = this
+    getCode() {
+      let that = this;
       axios({
         method: "post",
         url: "/editor/getCode",
-        data: {
-          title: this.title,
-          d_type: this.d_type,
-          editorContent: this.editorContent,
-          user: "mayeye",
-        }
+        data: {}
       }).then(function(res) {
-        that.id = res.data.code
-        window.console.log(that.id)
+        that.id = res.data.code;
+        // window.console.log(that.id)
+        that.$router.push("/editor/" + that.id);
       });
     },
-    save() {
-      let that = this
+    init() {
+      let aid = this.$route.params.id;
+      if (aid == 0) {
+        this.getCode();
+      } else {
+        let that = this;
+        axios({
+          method: "post",
+          url: "/editor/getInit",
+          data: {
+            id:aid
+          }
+        }).then(function(res) {
+          that.value = res.data.value
+        });
+      }
+      // window.console.log("editorssss",aid)
+    },
+    save(value, render) {
+      let that = this;
+      window.console.log("post");
       axios({
         method: "post",
         url: "/editor/save",
         data: {
           title: this.title,
           d_type: this.d_type,
-          editorContent: this.editorContent,
+          editorContent: render,
+          value: value,
           user: "mayeye",
-          id:this.id
+          id: this.id
         }
-      }).then(function() {
-         that.$toast({
-        text: '保存成功',
-        type: 'success',
-        // duration: 3000
       })
-      }).catch(function(){
+        .then(function() {
           that.$toast({
-        text: '保存失败',
-        type: 'danger',
-        // duration: 3000
-      })
-      });
-    }
-    ,
+            text: "保存成功",
+            type: "success"
+            // duration: 3000
+          });
+        })
+        .catch(function() {
+          that.$toast({
+            text: "保存失败",
+            type: "danger"
+            // duration: 3000
+          });
+        });
+    },
     submit() {
       this.save();
       this.$router.push("/");
@@ -102,42 +123,24 @@ export default {
       }
     }
   },
+  watch: {
+    $route(to, from) {
+      if (from != 0) {
+        this.init();
+      }
+    }
+  },
   mounted() {
-    var editor = new E(this.$refs.editor);
-    editor.customConfig.onchange = html => {
-      this.editorContent = html;
-    };
-    editor.customConfig.uploadImgShowBase64 = true; // 使用 base64 保存图片
-    editor.customConfig.fontNames = [
-        '宋体',
-        '微软雅黑',
-        'Arial',
-        'Tahoma',
-        'Verdana'
-    ]
-    editor.customConfig.colors = [
-        '#000000',
-        '#eeece0',
-        '#1c487f',
-        '#4d80bf',
-        '#c24f4a',
-        '#8baa4a',
-        '#7b5ba1',
-        '#46acc8',
-        '#f9963b',
-        '#ffffff'
-    ]
-    editor.create();
-    this.getCode();
-    window.Vpoc = 1
+    this.init();
+    // window.Vpoc = 1
   }
 };
 </script>
 
 <style scoped>
-.wraper{
-  width:80%;
-  margin:20px auto;
+.wraper {
+  width: 80%;
+  margin: 20px auto;
 }
 #hidden {
   display: none;

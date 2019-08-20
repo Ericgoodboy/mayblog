@@ -24,7 +24,7 @@
           <i class="fa fa-book" aria-hidden="true"></i>
           {{ mapDtype[type] }}
         </div>
-        <div class="more">
+        <div class="more" @click="more()">
           更多
           <i class="fa fa-angle-right" aria-hidden="true"></i>
         </div>
@@ -52,7 +52,9 @@ export default {
     showit() {
       this.$router.push("/showartical/"+this.aid);
       window.console.log(this.type)
-      
+    },
+    more(){
+      this.$router.push("/editor/"+this.aid);
     }
   }
 };
@@ -151,5 +153,6 @@ export default {
   float: right;
   line-height: 30px;
   margin-right: 10px;
+  cursor: pointer;
 }
 </style>

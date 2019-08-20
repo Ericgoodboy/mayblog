@@ -13,17 +13,22 @@
   border-radius: 5px;
   transform: translate(-50%, -50%);
   color: #fff;
+  transition: .5s;
 }
 .info {
   background: #00aaee;
+  z-index: 100000;
 }
 .success {
   background: #00ee6b;
+  z-index: 100000;
 }
 .wraning {
   background: #eea300;
+  z-index: 100000;
 }
 .danger {
   background: #ee000c;
+  z-index: 100000;
 }
 </style>
