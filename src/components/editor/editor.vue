@@ -5,7 +5,6 @@
     </div>
     <mavon-editor
       :value="value"
-      @keydown="handleKeydown()"
       @save="save"
       ref="editor"
       v-model="value"
@@ -19,7 +18,7 @@
       </div>
 
       <textarea id="hidden" name="content" v-model="editorContent" cols="30" rows="10"></textarea>
-      <button @click="save()">保存</button>
+      <button @click="mysave()">保存</button>
       <button @click="submit()">提交</button>
     </div>
   </div>
@@ -82,6 +81,10 @@ export default {
       }
       // window.console.log("editorssss",aid)
     },
+    mysave(){
+      window.console.dir(this.$refs["editor"])
+      this.save(this.$refs["editor"].d_value,this.$refs["editor"].d_render)
+    },
     save(value, render) {
       let that = this;
       window.console.log("post");
@@ -113,16 +116,8 @@ export default {
         });
     },
     submit() {
-      this.save();
+      // this.save();
       this.$router.push("/");
-    },
-    handleKeydown() {
-      let key = window.event.keyCode;
-      if (key == 83 && event.ctrlKey) {
-        //== 83 && event.ctrlKey
-        window.event.preventDefault(); //关闭浏览器快捷键
-        this.save();
-      }
     }
   },
   watch: {
