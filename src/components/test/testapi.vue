@@ -1,6 +1,6 @@
 <template>
-  <div @click="handelclick" class="test">
-    <div class="close">
+  <div  class="test">
+    <div @click="handelclick"  class="close">
       <i class="fa fa-times-circle" aria-hidden="true"></i>
     </div>
     <v-person></v-person>
@@ -38,7 +38,7 @@ export default {
       })
     },
     handelclick:function(){
-      // this.$router.push('/')
+      this.$router.push('/')
     }
   },
   mounted(){

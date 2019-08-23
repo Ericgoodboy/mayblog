@@ -12,7 +12,7 @@
         name:"ma-persion-card",
         data(){
             return {
-                show:1
+                show:0
             }
         },
         components:{
