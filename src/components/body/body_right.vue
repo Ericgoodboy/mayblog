@@ -10,7 +10,7 @@
     <div class="article-list">
       <ul>
         <li v-for="item in hotarticals" :key="item.id">
-          <router-link :to="'/showartical/'+item.aid">{{ item.title }}</router-link>
+          <router-link :to="'/showartical/'+item.id">{{ item.title }}</router-link>
         </li>
       </ul>
     </div>
