@@ -26,6 +26,7 @@
         float: left;
         width:382px;
         height:369px;
-        /* background: #4a4; */
+        background: #ddd;
+        z-index: 1000;
     }
 </style>

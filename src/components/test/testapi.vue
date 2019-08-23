@@ -1,11 +1,14 @@
 <template>
   <div @click="handelclick" class="test">
-    <div class="box1"></div>
-    <div class="box2"></div>
+    <div class="close">
+      <i class="fa fa-times-circle" aria-hidden="true"></i>
+    </div>
+    <v-person></v-person>
   </div>
 </template>
 
 <script>
+import personcard from '../personcard/personcard'
 import axios from "axios";
 export default {
   name: "test",
@@ -15,6 +18,10 @@ export default {
       response: "sdafs"
     };
   },
+  components:{
+    "v-person":personcard
+  }
+  ,
   methods: {
     getResponse: function() {
       let a = axios.create({
@@ -31,7 +38,7 @@ export default {
       })
     },
     handelclick:function(){
-      this.$router.push('/')
+      // this.$router.push('/')
     }
   },
   mounted(){
@@ -50,6 +57,17 @@ export default {
   z-index: 1000;
   transform: scaleY(1);
   overflow:visible;
+}
+.close{
+  position: fixed;
+  right: 200px;
+  top: 200px;
+  cursor: pointer;
+  color: #999
+}
+.close:hover{
+  color: #bbb;
+  font-size: 20px;
 }
 .box1{
   position: absolute;

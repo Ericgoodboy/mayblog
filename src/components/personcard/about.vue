@@ -17,7 +17,7 @@
         data(){
             return {
                 name:"黄骐",
-                desc:"软件开发工程师",
+                desc:"业余打手",
                 paras:[
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                     "Has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it."

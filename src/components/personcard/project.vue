@@ -3,7 +3,7 @@
         <ul class="clearfix">
             <li>
                 <div class="p-wraper">
-                    <div class="p-img">1</div>
+                    <div class="p-img"></div>
                     <div class="p-name-link">
                         <i class="fa fa-link ico" aria-hidden="true"></i>{{ pname }}
                     </div>
@@ -11,7 +11,7 @@
             </li>
             <li>
                 <div class="p-wraper">
-                    <div class="p-img">1</div>
+                    <div class="p-img"></div>
                     <div class="p-name-link">
                         <i class="fa fa-link ico" aria-hidden="true"></i>{{ pname }}
                     </div>
@@ -19,7 +19,7 @@
             </li>
             <li>
                 <div class="p-wraper">
-                    <div class="p-img">1</div>
+                    <div class="p-img"></div>
                     <div class="p-name-link">
                         <i class="fa fa-link ico" aria-hidden="true"></i>{{ pname }}
                     </div>
@@ -27,7 +27,7 @@
             </li>
             <li>
                 <div class="p-wraper">
-                    <div class="p-img">1</div>
+                    <div class="p-img"></div>
                     <div class="p-name-link">
                         <i class="fa fa-link ico" aria-hidden="true"></i>{{ pname }}
                     </div>
@@ -71,7 +71,7 @@
         width: 120px;
         height:80px;
         margin:0 auto;
-        background: #333;
+        background: rgba(79, 141, 170, 0.849);
     }
     .p-name-link{
         line-height: 40px;

@@ -1,7 +1,7 @@
 <template>
     <div class="ma-left">
         <div class="avator">
-            <img src="../../assets/avator.png" alt="" srcset="">
+            <img src="../../assets/logo.png" alt="" srcset="">
         </div>
         <div class="selectlist">
             <ul>
