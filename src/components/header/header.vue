@@ -24,7 +24,7 @@ export default {
               {id:1,title:"首页",url:"/",show:true},
               {id:2,title:"前端",url:"/subbody/fontend",show:true},
               {id:3,title:"后端",url:"/subbody/backend",show:true},
-              {id:4,title:"test",url:"/test",show:true},
+              {id:4,title:"mayeye",url:"/test",show:true},
               {id:5,title:"想法",url:"/subbody/thinking",show:true},
               {id:6,title:"机器学习",url:"/subbody/ml",show:true},
               {id:7,title:"+编辑",url:"/editor/0",show:true},

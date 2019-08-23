@@ -32,6 +32,7 @@ export default {
         that.body = res.data.body
         that.title = res.data.title
         that.user= res.data.user
+        window.data=res.data.body
       });
     }
   },

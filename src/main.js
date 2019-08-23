@@ -27,7 +27,9 @@ const routes = [
 ]
 import toastRegistry from './toast/index'
 Vue.use(toastRegistry)
-const router =new VueRouter({routes})
+const router =new VueRouter({
+  mode:"history",
+  routes})
 new Vue({
   render: h => h(App),
   router,

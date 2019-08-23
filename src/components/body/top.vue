@@ -6,7 +6,7 @@
                     <div class="icon">
                         置顶
                     </div>
-                    <router-link  to="">
+                    <router-link  :to="'/showartical/'+item.aid">
                         {{ item.title }}
                     </router-link>
                 </div>

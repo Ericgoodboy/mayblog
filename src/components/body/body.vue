@@ -47,7 +47,7 @@
                'method':"get",
                url:'/get/toping'
            }).then(res=>{
-                window.console.log(res.data)
+                // window.console.log("top",res.data)
                 let toping = res.data;
                 for(let i=0;i<toping.length;i++){
                     this.top.push(toping[i])

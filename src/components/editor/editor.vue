@@ -77,6 +77,7 @@ export default {
         }).then(function(res) {
           that.value = res.data.value
           that.title = res.data.title
+          that.d_type = res.data.type
         });
       }
       // window.console.log("editorssss",aid)

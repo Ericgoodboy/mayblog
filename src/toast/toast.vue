@@ -13,7 +13,7 @@
   border-radius: 5px;
   transform: translate(-50%, -50%);
   color: #fff;
-  transition: .5s;
+  transition: .8s;
 }
 .info {
   background: #00aaee;

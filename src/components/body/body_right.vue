@@ -29,7 +29,8 @@ export default {
           this.$refs["block"].style.top = -e + 120 + "px";
         }
       }
-    }
+    },
+    
   },
   mounted() {
     window.console.log("---------------------")

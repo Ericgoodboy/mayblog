@@ -2,7 +2,7 @@
     <div class="main-body clearfix">
         <ul>
             <li v-for="item in items" :key="item.id">
-                <v-card :type="item.type" :aid="item.id" :time="item.publishDate" :title="item.title" :content="item.desc" ></v-card>
+                <v-card @changeTop="changetop" :type="item.type" :aid="item.id" :time="item.publishDate" :title="item.title" :content="item.desc" ></v-card>
             </li>
         </ul>
     </div>
@@ -15,6 +15,11 @@
         props:["items"],
         components:{
             "v-card":card
+        },
+        methods:{
+            changetop(data){
+                this.$emit("changetop",data)
+            }
         }
     }
 </script>

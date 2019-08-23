@@ -5,7 +5,7 @@
     <!-- <editor></editor> -->
     <!-- <v-body></v-body> -->
     <!-- <v-test></v-test> -->
-    <transition name="bounce">
+    <transition class="trans" name="bounce">
       <router-view></router-view>
     </transition>
   </div>
@@ -33,23 +33,40 @@ export default {
 </script>
 
 <style>
+.trans{
+  transform-origin: top;
+}
 .bounce-enter-active {
   animation: bounce-in 1s;
 }
 .bounce-leave-active {
-  animation: bounce-in 1s reverse;
+  animation: bounce-out 1se;
 }
 @keyframes bounce-in {
   0% {
-    transform: scale(0); 
+    transform: scaleY(0); 
     opacity: 0;
   }
-  50% {
-    transform: scale(1.5);
+  /* 50% {
+    transform: scaleY(1.5);
     opacity: .2
-  }
+  } */
   100% {
-    transform: scale(1);
+    transform: scaleY(1);
+    opacity: 1
+  }
+}
+@keyframes bounce-out {
+  0% {
+    transform: scaleY(1); 
+    opacity: 0;
+  }
+  /* 50% {
+    transform: scaleY(1.5);
+    opacity: .2
+  } */
+  100% {
+    transform: scaleY(0);
     opacity: 1
   }
 }
