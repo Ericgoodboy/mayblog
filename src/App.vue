@@ -33,41 +33,52 @@ export default {
 </script>
 
 <style>
-.trans{
-  transform-origin: top;
-}
+
 .bounce-enter-active {
-  animation: bounce-in 1s;
+  animation: bounce-in 2s;
+  position: absolute;
+  width: 100%;
+  height:95%;
+  overflow: hidden;
+  transform-origin: left;
+  top:-00px;
 }
 .bounce-leave-active {
-  animation: bounce-out 1se;
+  animation: bounce-out 2s;
+  position: absolute;
+   width: 100%;
+  height:95%;
+  overflow: hidden;
+  transform-origin: right;
+  top:-0px;
+
 }
 @keyframes bounce-in {
   0% {
-    transform: scaleY(0); 
-    opacity: 0;
+    transform: scaleX(0);
+    /* opacity: 0; */
   }
   /* 50% {
     transform: scaleY(1.5);
     opacity: .2
   } */
   100% {
-    transform: scaleY(1);
-    opacity: 1
+    transform: scaleX(1);
+    /* opacity: 1 */
   }
 }
 @keyframes bounce-out {
   0% {
-    transform: scaleY(1); 
-    opacity: 0;
+    transform: scaleX(1);
+    /* opacity: 0; */
   }
   /* 50% {
     transform: scaleY(1.5);
     opacity: .2
   } */
   100% {
-    transform: scaleY(0);
-    opacity: 1
+    transform: scaleX(0);
+    /* opacsty: 1 */
   }
 }
 #app {

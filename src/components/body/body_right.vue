@@ -1,5 +1,6 @@
 <template>
-  <div ref="block" class="body_right">
+<!-- import { setInterval } from 'timers'; -->
+  <div   ref="block" class="body_right">
     <div class="title">
       <img src="../../assets/img/timeline-bg.1175b5c0.jpg" alt srcset />
       <h2>Mayeye大事件</h2>
@@ -24,9 +25,11 @@ export default {
   methods: {
     handleScroll() {
       var e = document.body.scrollTop || document.documentElement.scrollTop;
+      // window.console.log(e)
       if (this.$refs["block"] != undefined) {
-        if (e < 300) {
+        if (e < 200) {
           this.$refs["block"].style.top = -e + 120 + "px";
+          
         }
       }
     },
@@ -34,7 +37,9 @@ export default {
   },
   mounted() {
     window.console.log("---------------------")
-    window.console.log(this.hotarticals)
+    // window.console.log(this.hotarticals)
+    window.onscroll = this.handleScroll
+  //  window.setInterval(this.handleScroll,30)
 }
 };
 </script>
