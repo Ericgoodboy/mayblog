@@ -57,17 +57,25 @@ export default {
   z-index: 1000;
   transform: scaleY(1);
   overflow:visible;
+  cursor: pointer;
 }
 .close{
   position: fixed;
   right: 200px;
   top: 200px;
   cursor: pointer;
-  color: #999
+  color: #999;
+  transform-origin: center;
+  line-height: 15px;
+  font-size: 15px;
+  transition: .4s
 }
 .close:hover{
   color: #bbb;
-  font-size: 20px;
+  transform: scale(1.5)
+  /* font-size: 20px; */
+  /* line-height: 20px; */
+  /* text-shadow:1px 1px 1px #eee; */
 }
 .box1{
   position: absolute;

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
-import './assets/lib/resert.css';
+import './assets/lib/markdown.css';
+// import './assets/lib/darkula.css';
 import './assets/lib/clearfix.css';
 import './assets/lib/md1.css';
 import './assets/lib/css/font-awesome.css'
@@ -28,7 +29,7 @@ const routes = [
 import toastRegistry from './toast/index'
 Vue.use(toastRegistry)
 const router =new VueRouter({
-  mode:"history",
+  // mode:"history",
   routes})
 new Vue({
   render: h => h(App),

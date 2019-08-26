@@ -107,10 +107,11 @@ export default {
   padding: 10px;
   box-sizing: border-box;
   position: relative;
-  transition: 1s;
+  transition: .5s;
 }
 .card:hover {
   box-shadow: 0px 10px 10px #555;
+  transform: translate(0,-5px)
 }
 .infoline {
   width: 100%;
@@ -199,18 +200,38 @@ export default {
 }
 .more-panel {
   position: absolute;
-  right: -5px;
+  left: 0px;
   top: -60px;
   width: 60px;
   height: 60px;
   /* background: #50bfff; */
+}
+.more-panel ul{
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 .more-panel li {
   width: 60px;
   height: 30px;
   color: #334;
   position: relative;
+  list-style: none;
+  margin-left: 0px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  display: block
   /* z-index: 10000000000!important; */
+}
+ul li {
+  list-style: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
 .more-panel li:before {
   content: "";

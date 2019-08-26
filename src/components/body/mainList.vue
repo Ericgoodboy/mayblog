@@ -41,5 +41,6 @@ li{
     margin-left: 0px;
     float: left;
     margin-top:12px;
+    list-style: none;
 }
 </style>

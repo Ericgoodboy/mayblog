@@ -6,6 +6,7 @@
 </template>
 
 <script>
+// import 'github-markdown-css/github-markdown.css'
 import axios from "axios";
 export default {
   name: "artical",

@@ -50,15 +50,16 @@
     .avator img{ 
         width:190px;
         height:190px;
-        border-radius: 0 50% 50% 0%;
-        transition: .9;
-        box-shadow: 3px 3px 3px #000
+        border-radius: 50%;
+        transition: .3s;
+        /* box-shadow: 3px 3px 3px #000 */
 
     }
     .avator img:hover{ 
         width:190px;
         height:190px;
         border-radius: 0 0% 0% 0%;
+        
     }
     .selectlist{
         height: 179px;
