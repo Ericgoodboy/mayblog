@@ -6,8 +6,9 @@
     <!-- <v-body></v-body> -->
     <!-- <v-test></v-test> -->
     <transition class="trans" name="bounce">
-      <router-view></router-view>
+      <router-view class="clearfix"></router-view>
     </transition>
+    <v-footer></v-footer>
   </div>
 </template>
 
@@ -17,7 +18,7 @@ import header from "./components/header/header";
 // import crumbs from "./components/crumbs/crumbs";
 // import body from './components/body/body'
 // import editor from './components/editor/editor'
-// import test from './components/test/testapi'
+import test from './components/footer/footer'
 export default {
   name: "app",
   components: {
@@ -25,7 +26,7 @@ export default {
     // "v-crumbs": crumbs
     // "v-body":body,
     // editor,
-    // "v-test":test,
+    "v-footer":test,
   },
   mounted(){
   }
@@ -33,25 +34,49 @@ export default {
 </script>
 
 <style>
-
+router-view{
+  min-height: 1400px;
+  width: auto;
+}
 .bounce-enter-active {
-  animation: bounce-in 2s;
+  animation: to-in 1.2s;
   position: absolute;
   width: 100%;
   height:95%;
   overflow: hidden;
-  transform-origin: left;
+  transform-origin: center;
   top:-00px;
 }
 .bounce-leave-active {
-  animation: bounce-out 2s;
+  animation: to-out 1.2s;
   position: absolute;
    width: 100%;
   height:95%;
   overflow: hidden;
-  transform-origin: right;
+  transform-origin: center;
   top:-0px;
-
+}
+@keyframes to-out {
+    0%{
+        transform: rotateY(0deg);
+    }
+    50%{
+        transform: rotateY(90deg);
+    }
+    100%{
+        transform: rotateY(90deg);
+    }
+}
+@keyframes to-in {
+    0%{
+        transform: rotateY(270deg);
+    }
+    50%{
+        transform: rotateY(270deg);
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
 }
 @keyframes bounce-in {
   0% {

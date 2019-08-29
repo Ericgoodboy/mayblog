@@ -45,6 +45,12 @@ export default {
 </script>
 
 <style scoped>
+ul ol li{
+  list-style: none;
+  margin: 0%;
+  padding: 0%;
+  border: 0ch;
+}
 .body_right {
   width: 20%;
   height: 1200px;
@@ -72,12 +78,14 @@ export default {
 .body_right .title img:hover {
   transform: scaleX(1.8) translateX(20px);
 }
+
 .body_right .title h2 {
   position: absolute;
   left: 50%;
   top: 90%;
   transform: translate(-50%, -100%);
   color: #999;
+  font-size: 20px;
 }
 .hot-article {
   width: 100%;
