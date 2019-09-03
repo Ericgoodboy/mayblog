@@ -6,7 +6,7 @@ import './assets/lib/clearfix.css';
 import './assets/lib/md1.css';
 import './assets/lib/css/font-awesome.css'
 import body from './components/body/body'
-import test from './components/test/testAB'
+import test from './components/test/testapi'
 import editor from './components/editor/editor'
 import mavonEditor from 'mavon-editor'
 import subbody from './components/subbody/subbody'

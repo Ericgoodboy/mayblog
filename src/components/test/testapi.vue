@@ -77,7 +77,7 @@ export default {
   /* line-height: 20px; */
   /* text-shadow:1px 1px 1px #eee; */
 }
-.box1{
+/* .box1{
   position: absolute;
   height: 120px;
   width:120px;
@@ -87,8 +87,8 @@ export default {
   animation: box1 2s linear infinite;
   opacity: .6
   /* animation: box1 2s linear 0 inherit center cubic-bezier(0.075, 0.82, 0.165, 1); */
-}
-.box2{
+
+/* .box2{
   position: absolute;
   height: 120px;
   width:120px;
@@ -97,11 +97,11 @@ export default {
   background: #779;
   animation: box2 2s linear infinite;
   opacity: .6;
-  transform: rotate(45deg)
+  transform: rotate(45deg) */
   /* animation: box1 2s linear 0 inherit center cubic-bezier(0.075, 0.82, 0.165, 1); */
-}
+/* } */
 
-@keyframes box2 {
+/* @keyframes box2 {
   0%{
     transform: rotate3d(0,1,0,0deg)rotateZ(45deg)
   }
@@ -124,5 +124,5 @@ export default {
     transform: rotate3d(0,0,1,360deg)rotateZ(45deg)
   }
 
-}
+} */
 </style>

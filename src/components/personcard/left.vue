@@ -39,6 +39,11 @@
 </script>
 
 <style scoped>
+ul{
+    margin: 0%;
+    padding: 0%;
+    border: 0;
+}
     .ma-left{
         width: 190px;
         height:369px;
@@ -62,13 +67,13 @@
         
     }
     .selectlist{
-        height: 179px;
+        height: 175px;
         width:100%;
         background: #eee;
         /* margin-top: 7px; */
     }
     .selectlist li{
-        height: 44px;
+        height: 43px;
         line-height: 45px;
         width: 100%;
         background: #ccc;
