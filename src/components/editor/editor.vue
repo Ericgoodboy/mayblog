@@ -67,7 +67,11 @@ export default {
                * 1. 通过引入对象获取: `import {mavonEditor} from ...` 等方式引入后，`$vm`为`mavonEditor`
                * 2. 通过$refs获取: html声明ref : `<mavon-editor ref=md ></mavon-editor>，`$vm`为 `this.$refs.md`
                */
+<<<<<<< HEAD
               window.console.log(res.data)
+=======
+              window.console.log()
+>>>>>>> 6a55bb22dafe1f4d4eedbdc33e8bfcf14341b777
                this.$refs.editor.$img2Url(pos, res.data);
            }).catch(function(err){
              window.console.log(err)
