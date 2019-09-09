@@ -1,6 +1,8 @@
 <template>
     <div class="v-footer">
-        Ericgoodboy@github.io
+        <div class="footer-text">
+            Ericgoodboy@github.io
+        </div>
     </div>
 </template>
 
@@ -20,7 +22,15 @@
         width: 100%;
         text-align: center;
         margin-top:12px;
-        background: #fafafa;
+        /* background: #fafafa; */
         cursor: pointer;
+    }
+    .footer-text{
+        position: fixed;
+        height: 40px;
+        width:100%;
+        bottom: 0px;
+        left: 0px;
+        background: #fafafa
     }
 </style>

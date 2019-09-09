@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <v-header></v-header>
+    <v-star></v-star>
     <!-- <v-crumbs></v-crumbs> -->
     <!-- <editor></editor> -->
     <!-- <v-body></v-body> -->
     <!-- <v-test></v-test> -->
     <transition class="trans" name="bounce">
-      <router-view class="clearfix"></router-view>
+      <router-view  class="clearfix"></router-view>
     </transition>
     <v-footer></v-footer>
   </div>
@@ -17,7 +18,7 @@
 import header from "./components/header/header";
 // import crumbs from "./components/crumbs/crumbs";
 // import body from './components/body/body'
-// import editor from './components/editor/editor'
+import star from './components/background/start'
 import test from './components/footer/footer'
 export default {
   name: "app",
@@ -27,6 +28,7 @@ export default {
     // "v-body":body,
     // editor,
     "v-footer":test,
+    "v-star":star
   },
   mounted(){
   }
@@ -35,11 +37,12 @@ export default {
 
 <style>
 router-view{
-  min-height: 1400px;
+  min-height: 100vh;
   width: auto;
+  
 }
 .bounce-enter-active {
-  animation: to-in 1.2s;
+  animation: bounce-in 1.2s;
   position: absolute;
   width: 100%;
   height:95%;
@@ -48,13 +51,19 @@ router-view{
   top:-00px;
 }
 .bounce-leave-active {
-  animation: to-out 1.2s;
+  animation: bounce-out 1.2s;
   position: absolute;
    width: 100%;
   height:95%;
   overflow: hidden;
   transform-origin: center;
   top:-0px;
+}
+.scale-enter-active{
+
+}
+.scale-leave-active{
+
 }
 @keyframes to-out {
     0%{
@@ -105,6 +114,9 @@ router-view{
     transform: scaleX(0);
     /* opacsty: 1 */
   }
+}
+.trans{
+  min-height: 100vh
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
