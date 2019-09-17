@@ -14,7 +14,7 @@
     <div class="form">
       <div class="select">
         <select v-model="d_type" name="类别">
-          <option v-for="(k,v) in mapDtype" :value="v" :key="k.id">{{ k }}</option>
+          <option v-for="k in mapDtype" :value="k.id" :key="k.id">{{ k.title }}</option>
           <!-- <option value="5">随笔</option> -->
         </select>
       </div>
@@ -39,7 +39,10 @@ export default {
       d_type: 1,
       id: "",
       value: "",
-      mapDtype: {}
+      mapDtype: [
+        
+      ]
+        
     };
   },
   methods: {
@@ -83,6 +86,7 @@ export default {
     init() {
       let aid = this.$route.params.id;
       this.id = aid
+      
       if (aid == 0) {
         this.getCode();
       } else {
@@ -107,16 +111,22 @@ export default {
     },
     getTagMap(){
       let that = this;
-      // window.console.log("post");
+      window.console.log("post-==-==-=-=-");
       axios({ 
         method: "post",
         url: "/get/tags",
       }).then(function(res){
-        
+          window.console.log(res)
           // that.mapDtype = res.data
           for(let i in res.data){
-            that.mapDtype[i] = res.data[i]
+            
+            that.mapDtype.push({
+              id:i,
+              title:res.data[i]
+            })
+            
           }
+          
       });
     }
     ,
@@ -152,11 +162,13 @@ export default {
     },
     submit() {
       // this.save();
+      
       this.$router.push("/");
     }
   },
   watch: {
     $route(to, from) {
+     
       if (from != 0) {
         this.init();
       }
