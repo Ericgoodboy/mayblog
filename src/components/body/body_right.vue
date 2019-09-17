@@ -63,8 +63,9 @@ ul ol li{
   right: 30px;
   top: 120px;
 }
-@media screen and(max-width: 1080px) {
-  .body_right{
+
+@media screen and (max-width: 1080px) {
+   .body_right{
     display: none;
   }
 }
