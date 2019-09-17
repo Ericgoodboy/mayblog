@@ -59,7 +59,13 @@ export default {
     margin: 40px auto;
 
 }
+@media screen and (max-width: 1080px){
+  .body{
+    width: 100%;
+    margin: 40px auto;
 
+}
+}
 
 
 
