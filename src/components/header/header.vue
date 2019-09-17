@@ -52,6 +52,12 @@ export default {
 }
 </script>
 <style scoped>
+ul li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border:0;
+}
 .header{
     display: block;
     position: fixed;
@@ -113,6 +119,11 @@ export default {
 .header li:hover::after{
     width: 100%;
     left: 0;
+}
+@media screen and (max-width: 1080px) {
+   .header ul{
+    width: 100%
+  }
 }
 </style>
 
