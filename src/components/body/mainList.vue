@@ -31,10 +31,21 @@
     /* background: linear-gradient(#999,#ccc) */
 }
 ul{
+    padding: 0%;
+    margin: 0;
+   border: 0;
+}
+li{
+    padding: 0%;
+    margin: 0;
+   border: 0;
+}
+ul{
     width: 100%;
     padding-top: 15px;
     margin-bottom: 80px;
 }
+
 li{
     width: 50%;
     height: 300px;
@@ -42,5 +53,15 @@ li{
     float: left;
     margin-top:12px;
     list-style: none;
+}
+@media screen and (max-width: 1080px) {
+    li{
+    width: 100%;
+    height: 300px;
+    margin-left: 0px;
+    float: left;
+    margin-top:12px;
+    list-style: none;
+}
 }
 </style>

@@ -124,6 +124,16 @@ export default {
 </script>
 
 <style  scoped>
+ul{
+    padding: 0%;
+    margin: 0;
+   border: 0;
+}
+li{
+    padding: 0%;
+    margin: 0;
+   border: 0;
+}
 .card {
   width: 100%;
   height: 100%;
@@ -153,7 +163,7 @@ export default {
 }
 .detail {
   float: left;
-  width: 320px;
+  width: 60%;
   height: 60px;
   /* background: #50bfff; */
   margin-left: 13px;
@@ -175,7 +185,7 @@ export default {
   font-size: 12px;
   box-sizing: border-box;
   padding-top: 12px;
-  margin-left: 19px;
+  margin-left: 5px;
 }
 .infos {
   height: 50%;

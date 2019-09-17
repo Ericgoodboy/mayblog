@@ -63,6 +63,11 @@ ul ol li{
   right: 30px;
   top: 120px;
 }
+@media screen and(max-width: 1080px) {
+  .body_right{
+    display: none;
+  }
+}
 .body_right .title {
   /* background: url("../../assets/img/timeline-bg.1175b5c0.jpg") no-repeat; */
   overflow: hidden;

@@ -40,4 +40,11 @@
     padding-left:70px;
     float: left;
 }
+@media screen and (max-width: 1080px) {
+.left{
+    width: 100%;
+    padding-left:0px;
+    float: left;
+}
+}
 </style>
