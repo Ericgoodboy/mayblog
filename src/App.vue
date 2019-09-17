@@ -2,6 +2,7 @@
   <div id="app">
     <v-header></v-header>
     <v-star></v-star>
+    <v-tags></v-tags>
     <!-- <v-crumbs></v-crumbs> -->
     <!-- <editor></editor> -->
     <!-- <v-body></v-body> -->
@@ -20,6 +21,8 @@ import header from "./components/header/header";
 // import body from './components/body/body'
 import star from './components/background/start'
 import test from './components/footer/footer'
+import tagsVue from './components/tags/tags.vue';
+
 export default {
   name: "app",
   components: {
@@ -28,7 +31,8 @@ export default {
     // "v-body":body,
     // editor,
     "v-footer":test,
-    "v-star":star
+    "v-star":star,
+    "v-tags":tagsVue
   },
   mounted(){
   }

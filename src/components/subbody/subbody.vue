@@ -8,18 +8,6 @@
 </template>
 
 <script>
-const map = {
-  fontend: "前端",
-  backend: "后端",
-  thinking: "想法",
-  ml: "机器学习"
-};
-const mapDtype = {
-  fontend: 1,
-  backend: 2,
-  thinking: 3,
-  ml: 4
-};
 import axios from "axios";
 import mainList from "../body/mainList";
 export default {
@@ -27,18 +15,55 @@ export default {
   data() {
     return {
       className: "sadf",
-      items: []
+      items: [],
+      mapDtype: {},
+      map: {
+        "前端":1,
+        "后端":2,
+      }
     };
+  },
+  methods: {
+    getTaget() {
+      let that = this;
+      // window.console.log("post");
+      axios({
+        method: "post",
+        url: "/get/tags"
+      }).then(function(res) {
+        // that.mapDtype = res.data
+        for (let i in res.data) {
+          that.mapDtype[i] = res.data[i];
+        }
+        for (let i in res.data) {
+          that.map[res.data[i]] = i;
+        }
+        that.className = that.$route.params.title;
+        axios({
+          method: "post",
+          url: "/get/sub-body",
+          data: {
+            type: that.map[that.$route.params.title]
+          }
+        }).then(res => {
+          window.console.log(res.data);
+          let items = res.data;
+          for (let i = 0; i < items.length; i++) {
+            that.items.push(items[i]);
+          }
+        });
+      });
+    }
   },
   watch: {
     $route(to, from) {
       window.console.log(to, from);
-      this.className = map[this.$route.params.title];
+      this.className = this.$route.params.title;
       axios({
         method: "post",
         url: "/get/sub-body",
-        data:{
-            type:mapDtype[this.$route.params.title]
+        data: {
+          type: this.map[this.$route.params.title]
         }
       }).then(res => {
         window.console.log(res.data);
@@ -55,21 +80,7 @@ export default {
   },
   mounted() {
     //    window.console.log(this.$route)
-    this.className = map[this.$route.params.title];
-
-    axios({
-      method: "post",
-      url: "/get/sub-body",
-      data:{
-            type:mapDtype[this.$route.params.title]
-        }
-    }).then(res => {
-      window.console.log(res.data);
-      let items = res.data;
-      for (let i = 0; i < items.length; i++) {
-        this.items.push(items[i]);
-      }
-    });
+    this.getTaget();
   }
 };
 </script>

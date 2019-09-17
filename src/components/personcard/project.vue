@@ -60,11 +60,17 @@
         margin: 25px auto;
         display: block;
         width: auto;
+        list-style: none;
+        padding: 0;
+        border: 0;
     }
     li{
         float: left;
         width: 160px;
         height:120px;
+        list-style: none;
+        padding: 0;
+        border: 0;
         /* border:1px solid #000; */
     }
     .p-img{

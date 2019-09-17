@@ -31,6 +31,7 @@
             <ul :class="showmore ? 'show':''">
               <li @click="more()">修改</li>
               <li @click="totop()">置顶</li>
+              <li @click="totop()">删除</li>
             </ul>
           </div>
         </div>
@@ -94,7 +95,30 @@ export default {
           })
         }
       });
+    },
+    delItem(){
+      let that = this;
+      axios({
+        method: "get",
+        url: "/delit",
+        params:{
+    aid: this.aid
+        },
+      }).then(res => {
+        if(res.data=="ok"){
+          that.$toast({
+            text: "置顶成功",
+            type: "success"
+            // duration: 3000
+          });
+          that.$emit("changeTop",{
+            aid:that.aid,
+            title:that.title,
+          })
+        }
+      });
     }
+
   }
 };
 </script>
@@ -201,7 +225,7 @@ export default {
 .more-panel {
   position: absolute;
   left: 0px;
-  top: -60px;
+  top: -90px;
   width: 60px;
   height: 60px;
   /* background: #50bfff; */
@@ -286,7 +310,7 @@ ul li {
   width: 60px;
   height: 30px;
   left: 0px;
-  bottom: -30px;
+  bottom: -60px;
 }
 .more-panel ul {
   width: 60px;

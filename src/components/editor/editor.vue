@@ -39,12 +39,7 @@ export default {
       d_type: 1,
       id: "",
       value: "",
-      mapDtype: {
-        1: "前端",
-        2: "后端",
-        3: "想法",
-        4: "机器学习"
-      }
+      mapDtype: {}
     };
   },
   methods: {
@@ -110,6 +105,21 @@ export default {
       window.console.dir(this.$refs["editor"])
       this.save(this.$refs["editor"].d_value,this.$refs["editor"].d_render)
     },
+    getTagMap(){
+      let that = this;
+      // window.console.log("post");
+      axios({ 
+        method: "post",
+        url: "/get/tags",
+      }).then(function(res){
+        
+          // that.mapDtype = res.data
+          for(let i in res.data){
+            that.mapDtype[i] = res.data[i]
+          }
+      });
+    }
+    ,
     save(value, render) {
       let that = this;
       window.console.log("post");
@@ -153,6 +163,7 @@ export default {
     }
   },
   mounted() {
+    this.getTagMap()
     this.init();
     // window.Vpoc = 1
   }
