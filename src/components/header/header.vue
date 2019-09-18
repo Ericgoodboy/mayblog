@@ -5,6 +5,9 @@
                 <li v-for="item in linkList"  :key="item.id">
                     <router-link v-if="item.show" :to="item.url">{{ item.title }}</router-link>
                 </li>
+                <li>
+                    <router-link class="editorlink"  to="/editor/0">编辑</router-link>
+                </li>
             </ul>
         </div>
     </div>
@@ -27,7 +30,7 @@ export default {
               {id:4,title:"mayeye",url:"/test",show:true},
               {id:5,title:"想法",url:"/subbody/想法",show:true},
               {id:6,title:"机器学习",url:"/subbody/机器学习",show:true},
-              {id:7,title:"编辑",url:"/editor/0",show:true},
+            //   {id:7,title:"编辑",url:"/editor/0",show:true},
           ]
       }
   },
@@ -52,7 +55,7 @@ export default {
 }
 </script>
 <style scoped>
-ul li{
+ul,li{
     list-style: none;
     margin: 0;
     padding: 0;
@@ -76,9 +79,14 @@ ul li{
     width: 80%;
     margin: 0 auto;
 }
+@media screen and (max-width: 1080px) {
+   .header ul{
+    width: 100%;
+  }
+}
 .header li{
     float: left;
-    width: 12.5%;
+    min-width: 12.5%;
     position: relative;
     text-decoration: none;
     display: flex;
@@ -120,11 +128,7 @@ ul li{
     width: 100%;
     left: 0;
 }
-@media screen and (max-width: 1080px) {
-   .header ul{
-    width: 100%
-  }
-}
+
 </style>
 
 
