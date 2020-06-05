@@ -14,13 +14,10 @@ export default {
   name: "subbody",
   data() {
     return {
-      className: "sadf",
+      className: "",
       items: [],
       mapDtype: {},
-      map: {
-        "前端":1,
-        "后端":2,
-      }
+      map: {}
     };
   },
   methods: {

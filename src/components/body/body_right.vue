@@ -29,7 +29,6 @@ export default {
       if (this.$refs["block"] != undefined) {
         if (e < 200) {
           this.$refs["block"].style.top = -e + 120 + "px";
-          
         }
       }
     },
@@ -107,6 +106,7 @@ ul ol li{
   line-height: 35px;
   text-align: center;
   font-weight: 500;
+  font-size:18px;
   color: aliceblue;
   cursor: pointer;
 }

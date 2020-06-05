@@ -1,4 +1,7 @@
 import Vue from 'vue'
+import {Input,Button,TimePicker} from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+// import App from './App.vue'
 import App from './App.vue'
 import './assets/lib/markdown.css';
 // import './assets/lib/darkula.css';
@@ -16,6 +19,9 @@ Vue.config.productionTip = false
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 Vue.use(mavonEditor)
+Vue.use(Input)
+Vue.use(Button)
+Vue.use(TimePicker)
 import 'mavon-editor/dist/css/index.css'
 
 Vue.prototype.userData = userData

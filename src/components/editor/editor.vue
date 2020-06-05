@@ -10,18 +10,26 @@
       v-model="value"
       codeStyle="atelier-cave-dark"
       @imgAdd="$imgAdd"
+      height="1200px"
     />
-    <div class="form">
-      <div class="select">
+    <div class="form clearfix">
+      <div class="select clearfix">
         <select v-model="d_type" name="类别">
           <option v-for="k in mapDtype" :value="k.id" :key="k.id">{{ k.title }}</option>
           <!-- <option value="5">随笔</option> -->
         </select>
       </div>
-
-      <textarea id="hidden" name="content" v-model="editorContent" cols="30" rows="10"></textarea>
+      <input type="text" class="clearfix" placeholder="添加标签">
+      <button>添加标签</button>
+      <!-- <textarea id="hidden" name="content" v-model="editorContent" cols="30" rows="10"></textarea> -->
       <button @click="mysave()">保存</button>
       <button @click="submit()">提交</button>
+    </div>
+    <div class="suggest-tag">
+        <div class="tag-outer" v-for="item in suggestTag" :key="item.code">
+          <p class="tag-name">{{ item.name}}</p>
+          <!-- <p class="tag-precent">{{item.precent}}%</p> -->
+        </div>
     </div>
   </div>
 </template>
@@ -39,10 +47,18 @@ export default {
       d_type: 1,
       id: "",
       value: "",
-      mapDtype: [
+      mapDtype:[      
+      ],
+      suggestTag:[
         
-      ]
+        {
+          name:"java",
+          code:10,
+          precent:80
+        }
         
+      ],
+      modiType:""  
     };
   },
   methods: {
@@ -72,6 +88,7 @@ export default {
            });
         },
     getCode() {
+      // 新建一个文章时获取一个唯一标识的码
       let that = this;
       axios({
         method: "post",
@@ -84,9 +101,9 @@ export default {
       });
     },
     init() {
+      // 初始化编辑页面
       let aid = this.$route.params.id;
       this.id = aid
-      
       if (aid == 0) {
         this.getCode();
       } else {
@@ -106,11 +123,13 @@ export default {
       // window.console.log("editorssss",aid)
     },
     mysave(){
+      //保存
       window.console.dir(this.$refs["editor"])
       this.save(this.$refs["editor"].d_value,this.$refs["editor"].d_render)
     },
     getTagMap(){
       let that = this;
+      // 获取tagsmap 打算重构的时候删掉或者改一个方法
       window.console.log("post-==-==-=-=-");
       axios({ 
         method: "post",
@@ -161,14 +180,35 @@ export default {
         });
     },
     submit() {
-      // this.save();
-      
+      this.save();
       this.$router.push("/");
+    },
+    predict(){
+      let that = this;
+      window.console.log("predicting")
+      // let value = this.$refs["editor"].d_value;
+      let render = this.$refs["editor"].d_render
+      axios(
+        { 
+        method:"post",
+        url:"/tag/predict",
+        data:{
+          // value: value,
+          render: render
+        }
+        }
+      ).then(function (res){
+        // that.$toast({
+          // text: res.data
+        // })
+        window.console.log(res)
+        that.suggestTag[0].name = res.data
+      }).catch(function (){
+      });
     }
   },
   watch: {
-    $route(to, from) {
-     
+    $route(to, from) { 
       if (from != 0) {
         this.init();
       }
@@ -178,6 +218,14 @@ export default {
     this.getTagMap()
     this.init();
     // window.Vpoc = 1
+    window.console.log("monted")
+    let that = this;
+    setInterval(function () {
+      window.console.log("------------------")
+      // if(this.$refs["editor"].d_value>100){
+        that.predict()
+      // }
+      },5000)
   }
 };
 </script>
@@ -199,7 +247,7 @@ export default {
   margin-left: 12px;
   margin-top: 10px;
 }
-.select {
+.select{
   display: inline-block;
   width: 300px;
   position: relative;
@@ -213,6 +261,26 @@ export default {
   border-radius: 4px;
   transition: box-shadow 0.25s ease;
   z-index: 2;
+}
+input{
+  display: inline-block;
+  width: 200px;
+  height:38px;
+  position: relative;
+  vertical-align: middle;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fff;
+  color: #555;
+  outline:none;
+  border: 1px solid #aaa;
+  text-shadow: none;
+  border-radius: 4px;
+  transition: box-shadow 0.25s ease;
+  z-index: 2;
+  margin-left:10px;
+  padding-left:10px;
+  line-height:80%;
 }
 .select:hover {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
@@ -246,7 +314,7 @@ export default {
 
 button {
   /* 按钮美化 */
-  width: 270px; /* 宽度 */
+  width: 120px; /* 宽度 */
   height: 40px; /* 高度 */
   border-width: 0px; /* 边框宽度 */
   border-radius: 3px; /* 边框半径 */
@@ -292,5 +360,35 @@ button:hover {
 .title:hover::before {
   width: 80%;
   height: 1px;
+}
+.suggest-tag{
+  width: 100%;
+  height: 80px;
+  margin-top: 120px;
+}
+.suggest-tag .tag-outer{
+  border: #1e90ff 1px solid;
+  width: 80px;
+  text-align: center;
+  height: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0%;
+  transition: .5s;
+  float: left;
+  margin-right:4px;
+  
+}
+.suggest-tag .tag-outer:hover{
+  color: rgb(223, 243, 47);
+  margin:0 10px;
+  transform: translateY(-10px)
+
+}
+.suggest-tag .tag-outer p{
+  margin: 0%;
+  padding: 0%;
+  color: darkblue;
+  display: inline;
 }
 </style>
